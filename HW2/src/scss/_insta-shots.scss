@@ -1,0 +1,83 @@
+.instagram-shots {
+  @include section-font;
+  width: 100%;
+  background-color: #f7f7f7;
+
+  &__body {
+    padding-top: 48px;
+    padding-bottom: 50px;
+    max-width: calc(100% - 30px);
+    margin: auto;
+  }
+
+  &__wrapper {
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: 16px;
+    padding-bottom: 24px;
+    color: $title-color;
+  }
+
+  &__more-link {
+    @include font(700, 13px, 22px, uppercase);
+    display: none;
+    text-decoration: none;
+    color: $title-color;
+
+    &::after {
+      content: ' -';
+    }
+  }
+
+  &__row {
+    display: grid;
+    grid-template-areas:
+      "instagram-shots__image1"
+      "instagram-shots__image2"
+      "instagram-shots__image3"
+      "instagram-shots__image4"
+      ;
+    grid-template-columns: 1fr 0 0 0;
+    grid-template-rows: 1fr;
+    overflow-y: hidden;
+
+    & img {
+      max-width: 100%;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .instagram-shots {
+    &__body {
+      max-width: 100%;
+    }
+
+    &__row {
+      grid-template-columns: 1fr 1fr 1fr 0;
+      gap: 9px;
+    }
+    &__image {
+      width: 100%;
+    }
+    &__more-link {
+      display: block;
+    }
+  }
+}
+@media (min-width: 1200px) {
+  .instagram-shots {
+    &__row {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+}
+
